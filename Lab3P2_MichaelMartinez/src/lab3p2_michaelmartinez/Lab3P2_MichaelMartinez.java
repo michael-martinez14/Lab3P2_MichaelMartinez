@@ -241,37 +241,81 @@ public class Lab3P2_MichaelMartinez {
                     
                     break;
                 case 5:
-                    for (int i = 0; i < listaPokeballs.size(); i++) {
-                        System.out.println(i+" )"+listaPokeballs.get(i));
-                    }
-                    System.out.print("Elija la posicion de una pokebola: ");
-                    int posi=entrada.nextInt();
-                    int numeroRandom=random.nextInt(0,listaPokemones.size()-1);
-                    if (((pokemon)listaPokemones.get(numeroRandom)).atrapado) {
-                        System.out.println("El pokemon ya está atrapado");
-                    }else{
-                        System.out.println("Ha aparecido el pokemon "+((pokemon)listaPokemones.get(numeroRandom)).nombre);
-                        System.out.println("1. Huir");
-                        System.out.println("2. Atraparlo");
-                        System.out.print("Elija una opcion: ");
-                        int elegir=entrada.nextInt();
-                        switch (elegir) {
-                            case 1:
-                                
-                                break;
-                            case 2:
-                                int numero=random.nextInt(1,4);
-                                System.out.print("Random de eficiencia "+numero);
-                                
-                                break;
-                            default:
-                                throw new AssertionError();
+                    if (listaPokeballs.isEmpty()) {
+                        System.out.println("No hay pokebolas");
+                    } else {
+                        for (int i = 0; i < listaPokeballs.size(); i++) {
+                            System.out.println(i + " )" + listaPokeballs.get(i));
                         }
-                        
+                        System.out.print("Elija la posicion de una pokebola: ");
+                        int posi = entrada.nextInt();
+                        int numeroRandom = random.nextInt(0, listaPokemones.size() - 1);
+                        if (((pokemon) listaPokemones.get(numeroRandom)).atrapado) {
+                            System.out.println("El pokemon ya está atrapado");
+                        } else {
+                            System.out.println("Ha aparecido el pokemon " + ((pokemon) listaPokemones.get(numeroRandom)).nombre);
+                            System.out.println("1. Huir");
+                            System.out.println("2. Atraparlo");
+                            System.out.print("Elija una opcion: ");
+                            int elegir = entrada.nextInt();
+                            switch (elegir) {
+                                case 1:
+
+                                    break;
+                                case 2:
+                                    int numero = random.nextInt(1, 4);
+                                    System.out.print("Random de eficiencia " + numero);
+                                    if (((pokeball) listaPokeballs.get(posi)).eficiencia == 3) {
+                                        System.out.println("Pokemon atrapado");
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setPokeball(listaPokeballs.get(posi));
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setAtrapado(true);
+                                        listaPokeballs.remove(posi);
+                                    } else if (((pokeball) listaPokeballs.get(posi)).eficiencia == 2 || ((pokeball) listaPokeballs.get(posi)).eficiencia == 1
+                                            && numero == 1 || numero == 2) {
+                                        System.out.println("Pokemon atrapado");
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setPokeball(listaPokeballs.get(posi));
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setAtrapado(true);
+                                        listaPokeballs.remove(posi);
+                                    } else if (((pokeball) listaPokeballs.get(posi)).eficiencia == 1 && numero == 1) {
+                                        System.out.println("Pokemon atrapado");
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setPokeball(listaPokeballs.get(posi));
+                                        ((pokemon) listaPokemones.get(numeroRandom)).setAtrapado(true);
+                                        listaPokeballs.remove(posi);
+                                    } else {
+                                        System.out.println("El pokemon escapó");
+                                        listaPokeballs.remove(posi);
+                                    }
+
+                                    break;
+                                default:
+                                    System.out.println("Opcion incorrecta");
+                            }
+
+                        }
+
                     }
+                    
                     
                     break;
                 case 6:
+                    System.out.println("1. FireType");
+                    System.out.println("2. WaterType");
+                    System.out.println("3. GrassType");
+                    System.out.print("Que tipo desea eliminar: ");
+                    int opcionModificar=entrada.nextInt();
+                    switch (opcionModificar) {
+                        case 1:
+                            
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta");
+                    }
                     
                     break;
                 case 7:
