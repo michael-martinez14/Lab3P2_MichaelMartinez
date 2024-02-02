@@ -193,6 +193,7 @@ public class Lab3P2_MichaelMartinez {
                                         conta++;
                                     }
                                 }
+                                //Validar que existan al menos uno de ese tipo para eliminar
                                 if (conta!=0) {
                                     System.out.print("Ingrese la posicion del pokemon a eliminar: ");
                                     int eliminar=entrada.nextInt();
@@ -245,6 +246,7 @@ public class Lab3P2_MichaelMartinez {
                     
                     break;
                 case 5:
+                    //Para atrapar pokemones
                     if (listaPokeballs.isEmpty()) {
                         System.out.println("No hay pokebolas");
                     } else {
@@ -254,8 +256,9 @@ public class Lab3P2_MichaelMartinez {
                         System.out.print("Elija la posicion de una pokebola: ");
                         int posi = entrada.nextInt();
                         int numeroRandom = random.nextInt (0, (listaPokemones.size()));
+                        //Validar que el pokemon que genera el random esté libre
                         if (((pokemon) listaPokemones.get(numeroRandom)).isAtrapado()) {
-                            System.out.println("El pokemon ya está atrapado");
+                            System.out.println("El pokemon que apareció ya está atrapado");
                         } else {
                             System.out.println("Ha aparecido el pokemon " + ((pokemon) listaPokemones.get(numeroRandom)).nombre);
                             System.out.println("1. Huir");
@@ -268,7 +271,7 @@ public class Lab3P2_MichaelMartinez {
                                     break;
                                 case 2:
                                     int numero = random.nextInt(1, 4);
-                                    System.out.print("Random de eficiencia " + numero);
+                                    //System.out.print("Random de eficiencia " + numero);
                                     if (((pokeball) listaPokeballs.get(posi)).eficiencia == 3) {
                                         System.out.println("Pokemon atrapado");
                                         ((pokemon) listaPokemones.get(numeroRandom)).setPokeball(listaPokeballs.get(posi));
