@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package lab3p1_michaelmartinez;
+package lab3p2_michaelmartinez;
 
 /**
  *
@@ -13,7 +13,7 @@ public class grassType extends pokemon {
     String habitat;
     int dominio;
 
-    public grassType(String habitat, int dominio, String nombre, int numeroEntrada, String naturaleza, boolean atrapado, lab3p1_michaelmartinez.pokeball pokeball) {
+    public grassType(String habitat, int dominio, String nombre, int numeroEntrada, String naturaleza, boolean atrapado, lab3p2_michaelmartinez.pokeball pokeball) {
         super(nombre, numeroEntrada, naturaleza, atrapado, pokeball);
         this.habitat = habitat;
         this.dominio = dominio;
@@ -67,11 +67,11 @@ public class grassType extends pokemon {
         this.atrapado = atrapado;
     }
 
-    public lab3p1_michaelmartinez.pokeball getPokeball() {
+    public lab3p2_michaelmartinez.pokeball getPokeball() {
         return pokeball;
     }
 
-    public void setPokeball(lab3p1_michaelmartinez.pokeball pokeball) {
+    public void setPokeball(lab3p2_michaelmartinez.pokeball pokeball) {
         this.pokeball = pokeball;
     }
 

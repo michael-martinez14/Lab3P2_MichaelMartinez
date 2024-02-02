@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package lab3p1_michaelmartinez;
+package lab3p2_michaelmartinez;
 
 /**
  *
@@ -11,7 +11,7 @@ package lab3p1_michaelmartinez;
 public class fireType extends pokemon{
     int potencia;
 
-    public fireType(int potencia, String nombre, int numeroEntrada, String naturaleza, boolean atrapado, lab3p1_michaelmartinez.pokeball pokeball) {
+    public fireType(int potencia, String nombre, int numeroEntrada, String naturaleza, boolean atrapado, lab3p2_michaelmartinez.pokeball pokeball) {
         super(nombre, numeroEntrada, naturaleza, atrapado, pokeball);
         this.potencia = potencia;
     }
@@ -56,11 +56,11 @@ public class fireType extends pokemon{
         this.atrapado = atrapado;
     }
 
-    public lab3p1_michaelmartinez.pokeball getPokeball() {
+    public lab3p2_michaelmartinez.pokeball getPokeball() {
         return pokeball;
     }
 
-    public void setPokeball(lab3p1_michaelmartinez.pokeball pokeball) {
+    public void setPokeball(lab3p2_michaelmartinez.pokeball pokeball) {
         this.pokeball = pokeball;
     }
 

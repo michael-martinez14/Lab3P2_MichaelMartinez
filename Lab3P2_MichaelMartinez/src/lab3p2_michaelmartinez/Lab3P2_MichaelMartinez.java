@@ -20,6 +20,7 @@ public class Lab3P2_MichaelMartinez {
         // TODO code application logic here
         Scanner entrada=new Scanner(System.in);
         ArrayList <pokemon> listaPokemones=new ArrayList();
+        ArrayList <pokeball> listaPokeballs=new ArrayList();
         boolean bandera=true;
         int opcionMenu=0;
         while (bandera) {
@@ -34,15 +35,156 @@ public class Lab3P2_MichaelMartinez {
             opcionMenu=entrada.nextInt();
             switch (opcionMenu) {
                 case 1:
+                    System.out.println("1. FireType");
+                    System.out.println("2. WaterType");
+                    System.out.println("3. GrassType");
+                    System.out.print("Que tipo desea agregar: ");
+                    int opcion=entrada.nextInt();
+                    switch (opcion) {
+                        case 1:
+                            System.out.print("Ingrese el nombre del pokemon: ");
+                            String nombre=entrada.next();
+                            System.out.print("Ingrese el numero de entrada a la Pokedex: ");
+                            int numeroEntrada=entrada.nextInt();
+                            System.out.print("Ingrese la naturaleza del pokemon (Timido, energetico o misterioso): ");
+                            String naturaleza=entrada.next();
+                            System.out.print("Ingrese la potencia de sus llamas: ");
+                            int potencia=entrada.nextInt();
+                            boolean atrapado=false;
+                            pokeball pokebola=new pokeball();
+                            pokemon nuevoFire=new fireType(potencia, nombre, numeroEntrada, naturaleza, atrapado, pokebola);
+                            listaPokemones.add(nuevoFire);
+                            break;
+                        case 2:
+                            System.out.print("Ingrese el nombre del pokemon: ");
+                            String nombre2=entrada.next();
+                            System.out.print("Ingrese el numero de entrada a la Pokedex: ");
+                            int numeroEntrada2=entrada.nextInt();
+                            System.out.print("Ingrese la naturaleza del pokemon (Timido, energetico o misterioso): ");
+                            String naturaleza2=entrada.next();
+                            System.out.print("¿Puede vivir fuera del agua? si/no: ");
+                            String supervivencia=entrada.next();
+                            boolean vivir=false;
+                            if (supervivencia.equalsIgnoreCase("si")) {
+                                vivir=true;
+                            }
+                            System.out.print("Ingrese la rapidez al nadar: ");
+                            int rapidez=entrada.nextInt();
+                            boolean atrapado2=false;
+                            pokeball pokebola2=new pokeball();
+                            pokemon nuevoWater=new waterType(vivir, rapidez, nombre2, numeroEntrada2, naturaleza2, atrapado2, pokebola2);
+                            listaPokemones.add(nuevoWater);
+                            
+                            break;
+                        case 3:
+                            System.out.print("Ingrese el nombre del pokemon: ");
+                            String nombre3=entrada.next();
+                            System.out.print("Ingrese el numero de entrada a la Pokedex: ");
+                            int numeroEntrada3=entrada.nextInt();
+                            System.out.print("Ingrese la naturaleza del pokemon (Timido, energetico o misterioso): ");
+                            String naturaleza3=entrada.next();
+                            System.out.print("Ingrese el habitat del pokemon: ");
+                            String habitat=entrada.next();
+                            System.out.print("Ingresen su dominio sobre las plantas (1-100): ");
+                            int dominio=entrada.nextInt();
+                            boolean atrapado3=false;
+                            pokeball pokebola3=new pokeball();
+                            if (dominio>100 || dominio<1) {
+                                System.out.println("Dominio incorrecto");
+                            }else{
+                                pokemon nuevoGrass=new grassType(habitat, dominio, nombre3, numeroEntrada3, naturaleza3, atrapado3, pokebola3);
+                                listaPokemones.add(nuevoGrass);
+                            }
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta");
+                    }
                     
                     break;
                 case 2:
+                    System.out.print("Ingrese el color de la pokebola: ");
+                    String color=entrada.next();
+                    System.out.print("Ingrese el numero de serie: ");
+                    int serie=entrada.nextInt();
+                    System.out.print("Ingrese la eficiencia de atrapado: ");
+                    int eficiencia=entrada.nextInt();
+                    int contador=0;
+                    for (int i = 0; i <listaPokeballs.size(); i++) {
+                        if (serie==listaPokeballs.get(i).serie) {
+                           contador++;
+                        }
+                    }
+                    if (contador!=0) {
+                        System.out.println("Serie ya existe");
+                    }else{
+                        if (eficiencia==1 || eficiencia==2 || eficiencia==3) {
+                            pokeball nuevaPokeball=new pokeball(color, serie, eficiencia);
+                            listaPokeballs.add(nuevaPokeball);
+                        }
+                    }
                     
                     break;
                 case 3:
+                    System.out.println("---POKEMONES---");
+                    for (pokemon p : listaPokemones) {
+                        if (p instanceof fireType) {
+                            System.out.println(p);
+                        }
+                    }
+                    for (pokemon p : listaPokemones) {
+                        if (p instanceof waterType) {
+                            System.out.println(p);
+                        }
+                    }
+                    
+                    for (pokemon p : listaPokemones) {
+                        if (p instanceof grassType) {
+                            System.out.println(p);
+                        }
+                    }
                     
                     break;
                 case 4:
+                    System.out.println("1. FireType");
+                    System.out.println("2. WaterType");
+                    System.out.println("3. GrassType");
+                    System.out.print("Que tipo desea eliminar: ");
+                    int op=entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            if (listaPokemones.size() != 0) {
+                                int conta=0;
+                                for (int i = 0; i < listaPokemones.size(); i++) {
+                                    if (listaPokemones.get(i) instanceof fireType) {
+                                        System.out.println(listaPokemones.get(i));
+                                        conta++;
+                                    }
+                                }
+                                if (conta!=0) {
+                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    int eliminar=entrada.nextInt();
+                                    if (listaPokemones.get(eliminar) instanceof fireType) {
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            
+                            
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta");
+                    }
+                    
                     
                     break;
                 case 5:
