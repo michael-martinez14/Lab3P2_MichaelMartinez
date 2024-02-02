@@ -5,6 +5,7 @@
 package lab3p2_michaelmartinez;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class Lab3P2_MichaelMartinez {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner entrada=new Scanner(System.in);
+        Random random=new Random();
         ArrayList <pokemon> listaPokemones=new ArrayList();
         ArrayList <pokeball> listaPokeballs=new ArrayList();
         boolean bandera=true;
@@ -162,7 +164,7 @@ public class Lab3P2_MichaelMartinez {
                                     }
                                 }
                                 if (conta!=0) {
-                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    System.out.print("Ingrese la posicion del pokemon a eliminar: ");
                                     int eliminar=entrada.nextInt();
                                     if (listaPokemones.get(eliminar) instanceof fireType) {
                                         listaPokemones.remove(eliminar);
@@ -188,7 +190,7 @@ public class Lab3P2_MichaelMartinez {
                                     }
                                 }
                                 if (conta!=0) {
-                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    System.out.print("Ingrese la posicion del pokemon a eliminar: ");
                                     int eliminar=entrada.nextInt();
                                     if (listaPokemones.get(eliminar) instanceof waterType) {
                                         listaPokemones.remove(eliminar);
@@ -215,12 +217,12 @@ public class Lab3P2_MichaelMartinez {
                                     }
                                 }
                                 if (conta!=0) {
-                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    System.out.print("Ingrese la posicion del pokemon a eliminar: ");
                                     int eliminar=entrada.nextInt();
                                     if (listaPokemones.get(eliminar) instanceof grassType) {
                                         listaPokemones.remove(eliminar);
                                     }else{
-                                        System.out.println("El numero no elegido está listado");
+                                        System.out.println("El numero elegido no está listado");
                                     }
                                     
                                 }else{
@@ -239,6 +241,34 @@ public class Lab3P2_MichaelMartinez {
                     
                     break;
                 case 5:
+                    for (int i = 0; i < listaPokeballs.size(); i++) {
+                        System.out.println(i+" )"+listaPokeballs.get(i));
+                    }
+                    System.out.print("Elija la posicion de una pokebola: ");
+                    int posi=entrada.nextInt();
+                    int numeroRandom=random.nextInt(0,listaPokemones.size()-1);
+                    if (((pokemon)listaPokemones.get(numeroRandom)).atrapado) {
+                        System.out.println("El pokemon ya está atrapado");
+                    }else{
+                        System.out.println("Ha aparecido el pokemon "+((pokemon)listaPokemones.get(numeroRandom)).nombre);
+                        System.out.println("1. Huir");
+                        System.out.println("2. Atraparlo");
+                        System.out.print("Elija una opcion: ");
+                        int elegir=entrada.nextInt();
+                        switch (elegir) {
+                            case 1:
+                                
+                                break;
+                            case 2:
+                                int numero=random.nextInt(1,4);
+                                System.out.print("Random de eficiencia "+numero);
+                                
+                                break;
+                            default:
+                                throw new AssertionError();
+                        }
+                        
+                    }
                     
                     break;
                 case 6:
