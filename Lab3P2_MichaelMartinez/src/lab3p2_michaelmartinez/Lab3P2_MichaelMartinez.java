@@ -157,7 +157,7 @@ public class Lab3P2_MichaelMartinez {
                                 int conta=0;
                                 for (int i = 0; i < listaPokemones.size(); i++) {
                                     if (listaPokemones.get(i) instanceof fireType) {
-                                        System.out.println(listaPokemones.get(i));
+                                        System.out.println(i+ " )"+listaPokemones.get(i));
                                         conta++;
                                     }
                                 }
@@ -165,20 +165,71 @@ public class Lab3P2_MichaelMartinez {
                                     System.out.print("Ingrese el pokemon a eliminar: ");
                                     int eliminar=entrada.nextInt();
                                     if (listaPokemones.get(eliminar) instanceof fireType) {
-                                        
+                                        listaPokemones.remove(eliminar);
+                                    }else{
+                                        System.out.println("El numero elegido no está listado");
                                     }
                                     
+                                }else{
+                                    System.out.println("No hay pokemones de ese tipo en la lista");
                                 }
                                 
+                            }else{
+                                 System.out.println("La lista está vacía");
                             }
-                            
-                            
-                            
                             break;
                         case 2:
+                             if (listaPokemones.size() != 0) {
+                                int conta=0;
+                                for (int i = 0; i < listaPokemones.size(); i++) {
+                                    if (listaPokemones.get(i) instanceof waterType) {
+                                        System.out.println(i+ " )"+listaPokemones.get(i));
+                                        conta++;
+                                    }
+                                }
+                                if (conta!=0) {
+                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    int eliminar=entrada.nextInt();
+                                    if (listaPokemones.get(eliminar) instanceof waterType) {
+                                        listaPokemones.remove(eliminar);
+                                    }else{
+                                        System.out.println("El numero elegido no está listado");
+                                    }
+                                    
+                                }else{
+                                    System.out.println("No hay pokemones de ese tipo en la lista");
+                                }
+                                
+                            }else{
+                                 System.out.println("La lista está vacía");
+                            }
                             
                             break;
                         case 3:
+                             if (listaPokemones.size() != 0) {
+                                int conta=0;
+                                for (int i = 0; i < listaPokemones.size(); i++) {
+                                    if (listaPokemones.get(i) instanceof grassType) {
+                                        System.out.println(i+ " )"+listaPokemones.get(i));
+                                        conta++;
+                                    }
+                                }
+                                if (conta!=0) {
+                                    System.out.print("Ingrese el pokemon a eliminar: ");
+                                    int eliminar=entrada.nextInt();
+                                    if (listaPokemones.get(eliminar) instanceof grassType) {
+                                        listaPokemones.remove(eliminar);
+                                    }else{
+                                        System.out.println("El numero no elegido está listado");
+                                    }
+                                    
+                                }else{
+                                    System.out.println("No hay pokemones de ese tipo en la lista");
+                                }
+                                
+                            }else{
+                                 System.out.println("La lista está vacía");
+                            }
                             
                             break;
                         default:

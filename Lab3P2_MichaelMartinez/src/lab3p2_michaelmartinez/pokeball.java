@@ -8,14 +8,16 @@ package lab3p2_michaelmartinez;
  *
  * @author Michael Martínez
  */
-public class pokeball extends pokemon {
+public class pokeball {
     
     String color;
     int serie;
     int eficiencia;
 
-    public pokeball(String color, int serie, int eficiencia, String nombre, int numeroEntrada, String naturaleza, boolean atrapado, pokeball pokeball) {
-        super(nombre, numeroEntrada, naturaleza, atrapado, pokeball);
+    public pokeball() {
+    }
+
+    public pokeball(String color, int serie, int eficiencia) {
         this.color = color;
         this.serie = serie;
         this.eficiencia = eficiencia;
@@ -45,50 +47,11 @@ public class pokeball extends pokemon {
         this.eficiencia = eficiencia;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getNumeroEntrada() {
-        return numeroEntrada;
-    }
-
-    public void setNumeroEntrada(int numeroEntrada) {
-        this.numeroEntrada = numeroEntrada;
-    }
-
-    public String getNaturaleza() {
-        return naturaleza;
-    }
-
-    public void setNaturaleza(String naturaleza) {
-        this.naturaleza = naturaleza;
-    }
-
-    public boolean isAtrapado() {
-        return atrapado;
-    }
-
-    public void setAtrapado(boolean atrapado) {
-        this.atrapado = atrapado;
-    }
-
-    public pokeball getPokeball() {
-        return pokeball;
-    }
-
-    public void setPokeball(pokeball pokeball) {
-        this.pokeball = pokeball;
-    }
-
     @Override
     public String toString() {
-        return super.toString()+"pokeball{" + "color=" + color + ", serie=" + serie + ", eficiencia=" + eficiencia + '}';
+        return "pokeball{" + "color=" + color + ", serie=" + serie + ", eficiencia=" + eficiencia + '}';
     }
+
     
     
     
