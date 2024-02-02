@@ -56,6 +56,7 @@ public class Lab3P2_MichaelMartinez {
                             pokeball pokebola=new pokeball();
                             pokemon nuevoFire=new fireType(potencia, nombre, numeroEntrada, naturaleza, atrapado, pokebola);
                             listaPokemones.add(nuevoFire);
+                            System.out.println("POKEMON AGREGADO");
                             break;
                         case 2:
                             System.out.print("Ingrese el nombre del pokemon: ");
@@ -76,6 +77,7 @@ public class Lab3P2_MichaelMartinez {
                             pokeball pokebola2=new pokeball();
                             pokemon nuevoWater=new waterType(vivir, rapidez, nombre2, numeroEntrada2, naturaleza2, atrapado2, pokebola2);
                             listaPokemones.add(nuevoWater);
+                            System.out.println("POKEMON AGREGADO");
                             
                             break;
                         case 3:
@@ -96,6 +98,7 @@ public class Lab3P2_MichaelMartinez {
                             }else{
                                 pokemon nuevoGrass=new grassType(habitat, dominio, nombre3, numeroEntrada3, naturaleza3, atrapado3, pokebola3);
                                 listaPokemones.add(nuevoGrass);
+                                System.out.println("POKEMON AGREGADO");
                             }
                             
                             break;
@@ -123,6 +126,7 @@ public class Lab3P2_MichaelMartinez {
                         if (eficiencia==1 || eficiencia==2 || eficiencia==3) {
                             pokeball nuevaPokeball=new pokeball(color, serie, eficiencia);
                             listaPokeballs.add(nuevaPokeball);
+                            System.out.println("POKEBOLA AGREGADA");
                         }
                     }
                     
@@ -249,7 +253,7 @@ public class Lab3P2_MichaelMartinez {
                         }
                         System.out.print("Elija la posicion de una pokebola: ");
                         int posi = entrada.nextInt();
-                        int numeroRandom = random.nextInt(0, listaPokemones.size() - 1);
+                        int numeroRandom = random.nextInt (0, (listaPokemones.size()));
                         if (((pokemon) listaPokemones.get(numeroRandom)).isAtrapado()) {
                             System.out.println("El pokemon ya está atrapado");
                         } else {
@@ -305,129 +309,151 @@ public class Lab3P2_MichaelMartinez {
                     int opcionModificar=entrada.nextInt();
                     switch (opcionModificar) {
                         case 1:
+                            int contador2 = 0;
                             for (int i = 0; i < listaPokemones.size(); i++) {
                                 if (listaPokemones.get(i) instanceof fireType) {
                                     System.out.println(i + " )" + listaPokemones.get(i));
+                                    contador2++;
                                 }
                             }
-                            System.out.print("Ingrese el pokemon a modificar: ");
-                            int eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof fireType && listaPokemones.get(eleccion).isAtrapado()) {
-                                System.out.println("1. Nombre");
-                                System.out.println("2. Nuevo No. Entrada en la pokedex");
-                                System.out.println("3. Nueva potencia en llamas");
-                                System.out.print("¿Que atributo desea modificar?: ");
-                                int modificar = entrada.nextInt();
-                                switch (modificar) {
-                                    case 1:
-                                        System.out.print("Ingrese el nuevo nombre");
-                                        String nombre = entrada.next();
-                                        listaPokemones.get(eleccion).setNombre(nombre);
+                            if (contador2 != 0) {
+                                System.out.print("Ingrese el pokemon a modificar: ");
+                                int eleccion = entrada.nextInt();
+                                if (listaPokemones.get(eleccion) instanceof fireType && listaPokemones.get(eleccion).isAtrapado()) {
+                                    System.out.println("1. Nombre");
+                                    System.out.println("2. Nuevo No. Entrada en la pokedex");
+                                    System.out.println("3. Nueva potencia en llamas");
+                                    System.out.print("¿Que atributo desea modificar?: ");
+                                    int modificar = entrada.nextInt();
+                                    switch (modificar) {
+                                        case 1:
+                                            System.out.print("Ingrese el nuevo nombre");
+                                            String nombre = entrada.next();
+                                            listaPokemones.get(eleccion).setNombre(nombre);
 
-                                        break;
-                                    case 2:
-                                        System.out.print("Ingrese nuevo No. entrada Pokedex: ");
-                                        int entra=entrada.nextInt();
-                                        listaPokemones.get(eleccion).setNumeroEntrada(entra);
+                                            break;
+                                        case 2:
+                                            System.out.print("Ingrese nuevo No. entrada Pokedex: ");
+                                            int entra = entrada.nextInt();
+                                            listaPokemones.get(eleccion).setNumeroEntrada(entra);
 
-                                        break;
-                                    case 3:
-                                        System.out.print("Ingrese nueva potencia en llamas: ");
-                                        int potencia=entrada.nextInt();
-                                        ((fireType)listaPokemones.get(eleccion)).setPotencia(potencia);
+                                            break;
+                                        case 3:
+                                            System.out.print("Ingrese nueva potencia en llamas: ");
+                                            int potencia = entrada.nextInt();
+                                            ((fireType) listaPokemones.get(eleccion)).setPotencia(potencia);
 
-                                        break;
-                                    default:
-                                        throw new AssertionError();
+                                            break;
+                                        default:
+                                            throw new AssertionError();
+                                    }
+                                } else {
+                                    System.out.println("El numero elegido no está listado o está libre");
                                 }
-                            } else {
-                                System.out.println("El numero elegido no está listado o está libre");
+                            }else{
+                                System.out.println("No hay pokemones de ese tipo");
                             }
+                            
                             break;
                         case 2:
+                            int contador3 = 0;
                             for (int i = 0; i < listaPokemones.size(); i++) {
                                 if (listaPokemones.get(i) instanceof waterType) {
                                     System.out.println(i + " )" + listaPokemones.get(i));
+                                    contador3++;
                                 }
                             }
-                            System.out.print("Ingrese el pokemon a modificar: ");
-                            eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof waterType && listaPokemones.get(eleccion).isAtrapado()) {
-                                System.out.println("1. Nombre");
-                                System.out.println("2. Nuevo No. Entrada en la pokedex");
-                                System.out.println("3. Nueva potencia en llamas");
-                                System.out.print("¿Que atributo desea modificar?: ");
-                                int modificar = entrada.nextInt();
-                                switch (modificar) {
-                                    case 1:
-                                        System.out.print("Ingrese el nuevo nombre");
-                                        String nombre = entrada.next();
-                                        listaPokemones.get(eleccion).setNombre(nombre);
+                            if (contador3 != 0) {
+                                System.out.print("Ingrese el pokemon a modificar: ");
+                                int eleccion = entrada.nextInt();
+                                if (listaPokemones.get(eleccion) instanceof waterType && listaPokemones.get(eleccion).isAtrapado()) {
+                                    System.out.println("1. Nombre");
+                                    System.out.println("2. Nuevo No. Entrada en la pokedex");
+                                    System.out.println("3. Nueva potencia en llamas");
+                                    System.out.print("¿Que atributo desea modificar?: ");
+                                    int modificar = entrada.nextInt();
+                                    switch (modificar) {
+                                        case 1:
+                                            System.out.print("Ingrese el nuevo nombre");
+                                            String nombre = entrada.next();
+                                            listaPokemones.get(eleccion).setNombre(nombre);
 
-                                        break;
-                                    case 2:
-                                        System.out.print("Ingrese nuevo No. entrada Pokedex: ");
-                                        int entra=entrada.nextInt();
-                                        listaPokemones.get(eleccion).setNumeroEntrada(entra);
+                                            break;
+                                        case 2:
+                                            System.out.print("Ingrese nuevo No. entrada Pokedex: ");
+                                            int entra = entrada.nextInt();
+                                            listaPokemones.get(eleccion).setNumeroEntrada(entra);
 
-                                        break;
-                                    case 3:
-                                        System.out.print("Ingrese si puede vivir fuera del agua: ");
-                                        String supervivencia=entrada.next();
-                                        boolean vivir=false;
-                                        if (supervivencia.equalsIgnoreCase("Si")) {
-                                            vivir=true;
-                                        }
-                                        ((waterType)listaPokemones.get(eleccion)).setVivir(vivir);
+                                            break;
+                                        case 3:
+                                            System.out.print("Ingrese si puede vivir fuera del agua: ");
+                                            String supervivencia = entrada.next();
+                                            boolean vivir = false;
+                                            if (supervivencia.equalsIgnoreCase("Si")) {
+                                                vivir = true;
+                                            }
+                                            ((waterType) listaPokemones.get(eleccion)).setVivir(vivir);
 
-                                        break;
-                                    default:
-                                        throw new AssertionError();
+                                            break;
+                                        default:
+                                            throw new AssertionError();
+                                    }
+                                } else {
+                                    System.out.println("El numero elegido no está listado o está libre");
                                 }
                             } else {
-                                System.out.println("El numero elegido no está listado o está libre");
+                                System.out.println("No hay pokemones de ese tipo");
                             }
+
                             
                             break;
                         case 3:
+                            int contador4 = 0;
                             for (int i = 0; i < listaPokemones.size(); i++) {
                                 if (listaPokemones.get(i) instanceof grassType) {
                                     System.out.println(i + " )" + listaPokemones.get(i));
+                                    contador4++;
                                 }
                             }
-                            System.out.print("Ingrese el pokemon a modificar: ");
-                            eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof grassType && listaPokemones.get(eleccion).isAtrapado()) {
-                                System.out.println("1. Nombre");
-                                System.out.println("2. Nuevo No. Entrada en la pokedex");
-                                System.out.println("3. Nueva potencia en llamas");
-                                System.out.print("¿Que atributo desea modificar?: ");
-                                int modificar = entrada.nextInt();
-                                switch (modificar) {
-                                    case 1:
-                                        System.out.print("Ingrese el nuevo nombre");
-                                        String nombre = entrada.next();
-                                        listaPokemones.get(eleccion).setNombre(nombre);
+                            if (contador4 != 0) {
+                                System.out.print("Ingrese el pokemon a modificar: ");
+                                int eleccion = entrada.nextInt();
+                                if (listaPokemones.get(eleccion) instanceof grassType && listaPokemones.get(eleccion).isAtrapado()) {
+                                    System.out.println("1. Nombre");
+                                    System.out.println("2. Nuevo No. Entrada en la pokedex");
+                                    System.out.println("3. Nueva potencia en llamas");
+                                    System.out.print("¿Que atributo desea modificar?: ");
+                                    int modificar = entrada.nextInt();
+                                    switch (modificar) {
+                                        case 1:
+                                            System.out.print("Ingrese el nuevo nombre");
+                                            String nombre = entrada.next();
+                                            listaPokemones.get(eleccion).setNombre(nombre);
 
-                                        break;
-                                    case 2:
-                                        System.out.print("Ingrese nuevo No. entrada Pokedex: ");
-                                        int entra=entrada.nextInt();
-                                        listaPokemones.get(eleccion).setNumeroEntrada(entra);
+                                            break;
+                                        case 2:
+                                            System.out.print("Ingrese nuevo No. entrada Pokedex: ");
+                                            int entra = entrada.nextInt();
+                                            listaPokemones.get(eleccion).setNumeroEntrada(entra);
 
-                                        break;
-                                    case 3:
-                                        System.out.print("Ingrese la nueva Habitat: ");
-                                        String habitat=entrada.next();
-                                        ((grassType)listaPokemones.get(eleccion)).setHabitat(habitat);
-                                        break;
-                                    default:
-                                        throw new AssertionError();
+                                            break;
+                                        case 3:
+                                            System.out.print("Ingrese la nueva Habitat: ");
+                                            String habitat = entrada.next();
+                                            ((grassType) listaPokemones.get(eleccion)).setHabitat(habitat);
+                                            break;
+                                        default:
+                                            throw new AssertionError();
+                                    }
+                                } else {
+                                    System.out.println("El numero elegido no está listado o está libre");
                                 }
+
                             } else {
-                                System.out.println("El numero elegido no está listado o está libre");
+                                System.out.println("No hay pokemones de ese tipo");
+
                             }
-                            
+
                             break;
                         default:
                             System.out.println("Opcion incorrecta");
