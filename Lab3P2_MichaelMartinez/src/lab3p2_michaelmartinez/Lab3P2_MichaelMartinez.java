@@ -250,7 +250,7 @@ public class Lab3P2_MichaelMartinez {
                         System.out.print("Elija la posicion de una pokebola: ");
                         int posi = entrada.nextInt();
                         int numeroRandom = random.nextInt(0, listaPokemones.size() - 1);
-                        if (((pokemon) listaPokemones.get(numeroRandom)).atrapado) {
+                        if (((pokemon) listaPokemones.get(numeroRandom)).isAtrapado()) {
                             System.out.println("El pokemon ya está atrapado");
                         } else {
                             System.out.println("Ha aparecido el pokemon " + ((pokemon) listaPokemones.get(numeroRandom)).nombre);
@@ -310,9 +310,9 @@ public class Lab3P2_MichaelMartinez {
                                     System.out.println(i + " )" + listaPokemones.get(i));
                                 }
                             }
-                            System.out.println("Ingrese el pokemon a modificar: ");
+                            System.out.print("Ingrese el pokemon a modificar: ");
                             int eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof fireType && listaPokemones.get(eleccion).atrapado) {
+                            if (listaPokemones.get(eleccion) instanceof fireType && listaPokemones.get(eleccion).isAtrapado()) {
                                 System.out.println("1. Nombre");
                                 System.out.println("2. Nuevo No. Entrada en la pokedex");
                                 System.out.println("3. Nueva potencia en llamas");
@@ -350,9 +350,9 @@ public class Lab3P2_MichaelMartinez {
                                     System.out.println(i + " )" + listaPokemones.get(i));
                                 }
                             }
-                            System.out.println("Ingrese el pokemon a modificar: ");
+                            System.out.print("Ingrese el pokemon a modificar: ");
                             eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof waterType && listaPokemones.get(eleccion).atrapado) {
+                            if (listaPokemones.get(eleccion) instanceof waterType && listaPokemones.get(eleccion).isAtrapado()) {
                                 System.out.println("1. Nombre");
                                 System.out.println("2. Nuevo No. Entrada en la pokedex");
                                 System.out.println("3. Nueva potencia en llamas");
@@ -395,9 +395,9 @@ public class Lab3P2_MichaelMartinez {
                                     System.out.println(i + " )" + listaPokemones.get(i));
                                 }
                             }
-                            System.out.println("Ingrese el pokemon a modificar: ");
+                            System.out.print("Ingrese el pokemon a modificar: ");
                             eleccion = entrada.nextInt();
-                            if (listaPokemones.get(eleccion) instanceof grassType && listaPokemones.get(eleccion).atrapado) {
+                            if (listaPokemones.get(eleccion) instanceof grassType && listaPokemones.get(eleccion).isAtrapado()) {
                                 System.out.println("1. Nombre");
                                 System.out.println("2. Nuevo No. Entrada en la pokedex");
                                 System.out.println("3. Nueva potencia en llamas");
